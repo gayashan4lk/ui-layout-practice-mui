@@ -1,14 +1,13 @@
 import { Container, Paper, Typography } from '@mui/material'
 import Grid from '@mui/material/Unstable_Grid2'
+import { cities } from '@/utils/mockdata/cities'
 
 export default async function Home() {
-  const cities = await (await fetch('http://localhost:3000/api/cities')).json()
-
   return (
     <Container maxWidth="xl">
       <Grid container spacing={2}>
         {cities[1].tours.map((tour: any) => (
-          <TourCard tour={tour} />
+          <TourCard key={tour.id} tour={tour} />
         ))}
       </Grid>
     </Container>
@@ -21,7 +20,7 @@ type TourCardProps = {
 
 function TourCard({ tour }: TourCardProps) {
   return (
-    <Grid key={tour.id} xs={3}>
+    <Grid xs={3}>
       <Paper
         elevation={3}
         sx={{
