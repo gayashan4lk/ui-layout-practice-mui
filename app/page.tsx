@@ -1,38 +1,25 @@
-import { Container, Paper, Typography } from '@mui/material'
+import { Box, Container, Paper, Typography } from '@mui/material'
 import Grid from '@mui/material/Unstable_Grid2'
+
+import { City } from '@/utils/types/models'
 import { cities } from '@/utils/mockdata/cities'
+import { TourCard } from '@/components/TourCard'
 
 export default async function Home() {
   return (
     <Container maxWidth="xl">
+      <Box paddingY={5}>
+        <Typography>Home Page</Typography>
+      </Box>
       <Grid container spacing={2}>
-        {cities[1].tours.map((tour: any) => (
-          <TourCard key={tour.id} tour={tour} />
-        ))}
+        {cities.map((city) =>
+          city.tours.map((tour) => (
+            <Grid xs={3}>
+              <TourCard key={tour.id} tour={tour} />
+            </Grid>
+          ))
+        )}
       </Grid>
     </Container>
-  )
-}
-
-type TourCardProps = {
-  tour: any
-}
-
-function TourCard({ tour }: TourCardProps) {
-  return (
-    <Grid xs={3}>
-      <Paper
-        elevation={3}
-        sx={{
-          padding: 2,
-          backgroundColor: 'white',
-        }}
-      >
-        <Typography variant="subtitle2">{tour.name}</Typography>
-        <Typography variant="body2">$ {tour.price}</Typography>
-        <Typography variant="body2">url</Typography>
-        <Typography variant="body2">date</Typography>
-      </Paper>
-    </Grid>
   )
 }
