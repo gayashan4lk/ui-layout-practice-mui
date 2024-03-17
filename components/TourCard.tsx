@@ -18,36 +18,36 @@ type TourCardProps = {
 export function TourCard({ tour }: TourCardProps) {
   return (
     <Card>
-      <CardActionArea>
+      <CardActionArea sx={{ borderRadius: 0 }} href={`tours/${tour.id}`}>
         <CardMedia height={200} image={tour.image} title={tour.name} component="img" alt={tour.name} />
-      </CardActionArea>
-      <CardContent sx={{ paddingX: 2, paddingBottom: 0 }}>
-        <Box sx={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
-          <Typography variant="subtitle1" gutterBottom fontWeight="bold" component="h4">
-            {tour.name}
+        <CardContent sx={{ paddingX: 2, paddingBottom: 0 }}>
+          <Box sx={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+            <Typography variant="subtitle1" gutterBottom fontWeight="bold" component="h4">
+              {tour.name}
+            </Typography>
+            <Typography variant="body2" fontWeight="bold" component="h4">
+              ${tour.price}
+            </Typography>
+          </Box>
+          <Typography
+            variant="body2"
+            gutterBottom
+            color="text.secondary"
+            textOverflow="ellipsis"
+            overflow="hidden"
+            sx={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}
+          >
+            {tour.description}
           </Typography>
-          <Typography variant="body2" fontWeight="bold" component="h4">
-            ${tour.price}
-          </Typography>
-        </Box>
-        <Typography
-          variant="body2"
-          gutterBottom
-          color="text.secondary"
-          textOverflow="ellipsis"
-          overflow="hidden"
-          sx={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}
-        >
-          {tour.description}
-        </Typography>
 
-        <Box sx={{ display: 'flex', alignItems: 'baseline-center' }}>
-          <ScheduleIcon sx={{ fontSize: 16 }} />
-          <Typography variant="body2" marginLeft={0.5}>
-            {tour.duration} hours
-          </Typography>
-        </Box>
-      </CardContent>
+          <Box sx={{ display: 'flex', alignItems: 'baseline-center' }}>
+            <ScheduleIcon sx={{ fontSize: 16 }} />
+            <Typography variant="body2" marginLeft={0.5}>
+              {tour.duration} hours
+            </Typography>
+          </Box>
+        </CardContent>
+      </CardActionArea>
       <CardActions sx={{ paddingX: 2, paddingTop: 0, paddingBottom: 2, justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'baseline-center' }}>
           <Rating name="read-only" value={tour.rating} readOnly size="small" precision={0.5} />
