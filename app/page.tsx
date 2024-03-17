@@ -1,3 +1,6 @@
+import { NavBar } from '@/components/NavBar'
+import { Box } from '@mui/material'
+
 export default function Page() {
-  return <h1>Home page</h1>
+  return <Box>This page contains nav bar</Box>
 }
