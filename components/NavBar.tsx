@@ -42,7 +42,7 @@ export function NavBar({}) {
 
   return (
     <AppBar position="static">
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
