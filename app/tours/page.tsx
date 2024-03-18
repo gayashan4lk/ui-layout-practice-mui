@@ -7,9 +7,9 @@ import { TourCard } from '@/components/TourCard'
 
 export default async function Home() {
   return (
-    <Container maxWidth="xl">
+    <>
       <Box paddingY={5}>
-        <Typography>Home Page</Typography>
+        <Typography>Join our awesome tours 🥰</Typography>
       </Box>
       <Grid container spacing={2}>
         {cities.map((city) =>
@@ -20,6 +20,6 @@ export default async function Home() {
           ))
         )}
       </Grid>
-    </Container>
+    </>
   )
 }

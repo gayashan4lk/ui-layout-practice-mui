@@ -8,6 +8,7 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 
 import { NavBar } from '@/components/NavBar'
+import { Container } from '@mui/material'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,7 +27,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <AppRouterCacheProvider>
           <NavBar />
-          {children}
+          <Container maxWidth="xl">{children}</Container>
         </AppRouterCacheProvider>
       </body>
     </html>
